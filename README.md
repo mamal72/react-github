@@ -1,7 +1,25 @@
 # react-github-components
-**react-github-components** is a set of react components for Github. It's a WIP and more components will be added.
+**react-github-components** is a set of react components for Github written by ES6 and ES7. It's a WIP and more components will be added.
 
 For now, there are 2 styles. More styles may be added later.
+
+# Styles
+
+## Github
+A simple Github like style
+<p align='center'>
+    <img src='https://github.com/mamal72/react-github-components/raw/master/screenshot2.png' />
+</p>
+
+## Silver
+A little silver, fancy style
+<p align='center'>
+    <img src='https://github.com/mamal72/react-github-components/raw/master/screenshot1.png' />
+</p>
+
+## Others
+*You can make your own styles and ignore these too. It's so simple and does not make much time! You can even share them by sending a PR if you wish.*
+
 
 # Installation
 
@@ -32,9 +50,9 @@ class Test extends Component {
 ```
 
 ### Properties
-* **username**: The username of the user on the Github.
+* **username**: The username of the Github profile to load info about it
 
-*Note that you should include one of the CSS styles in your HTML to load the style. Check the examples in the **examples** directory*
+*Note that you should include one of the CSS styles in your HTML to load the style. Check the examples in the `examples` directory to find out what and how.*
 
 # Contributing
 

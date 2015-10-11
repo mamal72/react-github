@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/mamal72/react-github-components.svg?branch=master)](https://travis-ci.org/mamal72/react-github-components)
 # react-github-components
 **react-github-components** is a set of react components for Github written by ES6 and ES7. It's a WIP and more components will be added.
 

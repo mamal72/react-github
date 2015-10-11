@@ -1,6 +1,6 @@
 {
   "name": "react-github-components",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A set of useful Github components for React",
   "main": "index.js",
   "scripts": {

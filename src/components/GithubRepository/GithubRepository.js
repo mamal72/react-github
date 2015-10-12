@@ -25,7 +25,6 @@ export default class extends Component {
       const response = await fetch(address);
       const json = await response.json();
       this.setState(json);
-      console.log(this.state);
     }();
   }
 

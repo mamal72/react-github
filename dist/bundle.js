@@ -58,8 +58,13 @@
 
 	var _srcComponentsGithubProfile2 = _interopRequireDefault(_srcComponentsGithubProfile);
 
+	var _srcComponentsGithubRepository = __webpack_require__(349);
+
+	var _srcComponentsGithubRepository2 = _interopRequireDefault(_srcComponentsGithubRepository);
+
 	var components = {
-	  GithubProfile: _srcComponentsGithubProfile2['default']
+	  GithubProfile: _srcComponentsGithubProfile2['default'],
+	  GithubRepository: _srcComponentsGithubRepository2['default']
 	};
 
 	exports['default'] = components;
@@ -5190,6 +5195,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	__webpack_require__(345);
+
 	var API_ROOT = 'https://api.github.com/users';
 
 	var _default = (function (_Component) {
@@ -5198,7 +5205,8 @@
 	  _createClass(_default, null, [{
 	    key: 'propTypes',
 	    value: {
-	      username: _react.PropTypes.string.isRequired
+	      username: _react.PropTypes.string.isRequired,
+	      className: _react.PropTypes.string
 	    },
 	    enumerable: true
 	  }]);
@@ -5244,9 +5252,14 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var followersUrl = this.state.html_url + '/followers';
+	      var repositoriesUrl = this.state.html_url + '/repositories';
+	      var gistsUrl = 'https://gist.github.com/' + this.props.username;
+	      var className = this.props.className ? 'github-profile ' + this.props.className : 'github-profile';
+
 	      return _react2['default'].createElement(
 	        'div',
-	        { className: 'github-profile' },
+	        { className: className },
 	        _react2['default'].createElement(
 	          'div',
 	          { className: 'github-profile__avatar' },
@@ -5274,7 +5287,6 @@
 	            { className: 'github-profile__name' },
 	            this.state.name
 	          ),
-	          _react2['default'].createElement('hr', { className: 'github-profile__separator' }),
 	          _react2['default'].createElement(
 	            'ul',
 	            { className: 'github-profile__stats' },
@@ -5282,31 +5294,43 @@
 	              'li',
 	              { className: 'github-profile__followers' },
 	              _react2['default'].createElement(
-	                'strong',
-	                null,
-	                this.state.followers
-	              ),
-	              ' Followers'
+	                'a',
+	                { href: followersUrl },
+	                _react2['default'].createElement(
+	                  'strong',
+	                  null,
+	                  this.state.followers
+	                ),
+	                ' Followers'
+	              )
 	            ),
 	            _react2['default'].createElement(
 	              'li',
 	              { className: 'github-profile__repos' },
 	              _react2['default'].createElement(
-	                'strong',
-	                null,
-	                this.state.public_repos
-	              ),
-	              ' Repos'
+	                'a',
+	                { href: repositoriesUrl },
+	                _react2['default'].createElement(
+	                  'strong',
+	                  null,
+	                  this.state.public_repos
+	                ),
+	                ' Repos'
+	              )
 	            ),
 	            _react2['default'].createElement(
 	              'li',
 	              { className: 'github-profile__gists' },
 	              _react2['default'].createElement(
-	                'strong',
-	                null,
-	                this.state.public_gists
-	              ),
-	              ' Gists'
+	                'a',
+	                { href: gistsUrl },
+	                _react2['default'].createElement(
+	                  'strong',
+	                  null,
+	                  this.state.public_gists
+	                ),
+	                ' Gists'
+	              )
 	            )
 	          )
 	        )
@@ -24760,6 +24784,550 @@
 
 	module.exports = deprecated;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(188)))
+
+/***/ },
+/* 345 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(346);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(348)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./GithubProfile.less", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./GithubProfile.less");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 346 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(347)();
+	// imports
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);", ""]);
+
+	// module
+	exports.push([module.id, ".github-profile {\n  font-family: 'Yanone Kaffeesatz', sans-serif;\n  max-width: 300px;\n  width: 100%;\n  text-align: center;\n  padding: 10px 0;\n  color: #333;\n  text-shadow: 0 0 1px #ddd;\n}\n.github-profile a,\n.github-profile a:visited {\n  color: inherit;\n  text-decoration: none;\n}\n.github-profile .github-profile__avatar img {\n  max-width: 100px;\n  max-height: 100px;\n  width: 50%;\n  margin: 0 auto;\n  border-radius: 4px;\n  transition: all 0.3s ease;\n}\n.github-profile .github-profile__avatar img:hover {\n  opacity: 0.8;\n}\n.github-profile .github-profile__stats {\n  list-style: none;\n  text-align: center;\n  padding: 0;\n}\n.github-profile .github-profile__stats li {\n  width: 33%;\n  display: inline-block;\n}\n.github-profile .github-profile__stats li strong {\n  display: block;\n}\n.github-profile .github-profile__username,\n.github-profile .github-profile__name {\n  margin: 0px;\n}\n.github-profile .github-profile__name {\n  border-bottom: 1px solid #eee;\n  padding-bottom: 5px;\n  margin: 0 8%;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 347 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 348 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0;
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function createStyleElement() {
+		var styleElement = document.createElement("style");
+		var head = getHeadElement();
+		styleElement.type = "text/css";
+		head.appendChild(styleElement);
+		return styleElement;
+	}
+
+	function createLinkElement() {
+		var linkElement = document.createElement("link");
+		var head = getHeadElement();
+		linkElement.rel = "stylesheet";
+		head.appendChild(linkElement);
+		return linkElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement());
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement();
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				styleElement.parentNode.removeChild(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement();
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				styleElement.parentNode.removeChild(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	var replaceText = (function () {
+		var textStore = [];
+
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+		var sourceMap = obj.sourceMap;
+
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+		var sourceMap = obj.sourceMap;
+
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+
+		var blob = new Blob([css], { type: "text/css" });
+
+		var oldSrc = linkElement.href;
+
+		linkElement.href = URL.createObjectURL(blob);
+
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
+
+
+/***/ },
+/* 349 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(190);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(350);
+
+	var API_ROOT = 'https://api.github.com/repos';
+
+	var _default = (function (_Component) {
+	  _inherits(_default, _Component);
+
+	  _createClass(_default, null, [{
+	    key: 'propTypes',
+	    value: {
+	      username: _react.PropTypes.string.isRequired,
+	      repository: _react.PropTypes.string.isRequired,
+	      showName: _react.PropTypes.boolean,
+	      showUsername: _react.PropTypes.boolean,
+	      showDescription: _react.PropTypes.boolean,
+	      className: _react.PropTypes.string
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {
+	      showName: true,
+	      showUsername: true,
+	      showDescription: true
+	    },
+	    enumerable: true
+	  }]);
+
+	  function _default(props) {
+	    _classCallCheck(this, _default);
+
+	    _get(Object.getPrototypeOf(_default.prototype), 'constructor', this).call(this, props);
+	    this.state = {};
+	  }
+
+	  _createClass(_default, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this = this;
+
+	      (function callee$2$0() {
+	        var address, response, json;
+	        return regeneratorRuntime.async(function callee$2$0$(context$3$0) {
+	          while (1) switch (context$3$0.prev = context$3$0.next) {
+	            case 0:
+	              address = API_ROOT + '/' + this.props.username + '/' + this.props.repository;
+	              context$3$0.next = 3;
+	              return regeneratorRuntime.awrap(fetch(address));
+
+	            case 3:
+	              response = context$3$0.sent;
+	              context$3$0.next = 6;
+	              return regeneratorRuntime.awrap(response.json());
+
+	            case 6:
+	              json = context$3$0.sent;
+
+	              this.setState(json);
+
+	            case 8:
+	            case 'end':
+	              return context$3$0.stop();
+	          }
+	        }, null, _this);
+	      })();
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var ownerUrl = 'https://github.com/' + this.props.username;
+	      var className = this.props.className ? 'github-repository ' + this.props.className : 'github-repository';
+	      return _react2['default'].createElement(
+	        'div',
+	        { className: className },
+	        this.props.showName && _react2['default'].createElement(
+	          'a',
+	          { href: this.state.html_url },
+	          _react2['default'].createElement(
+	            'h2',
+	            { className: 'github-repository__name' },
+	            this.props.repository
+	          )
+	        ),
+	        this.props.showDescription && _react2['default'].createElement(
+	          'h4',
+	          { className: 'github-repository__description' },
+	          this.state.description
+	        ),
+	        this.props.showUsername && _react2['default'].createElement(
+	          'h5',
+	          null,
+	          'by ',
+	          _react2['default'].createElement(
+	            'strong',
+	            null,
+	            _react2['default'].createElement(
+	              'a',
+	              { href: ownerUrl },
+	              '@',
+	              this.props.username
+	            )
+	          )
+	        ),
+	        _react2['default'].createElement(
+	          'ul',
+	          { className: 'github-repository__details' },
+	          _react2['default'].createElement(
+	            'li',
+	            { className: 'github-repository__stars' },
+	            _react2['default'].createElement(
+	              'a',
+	              { href: this.state.html_url + '/stargazers' },
+	              _react2['default'].createElement(
+	                'strong',
+	                null,
+	                this.state.stargazers_count
+	              ),
+	              ' Stars'
+	            )
+	          ),
+	          _react2['default'].createElement(
+	            'li',
+	            { className: 'github-repository__forks' },
+	            _react2['default'].createElement(
+	              'a',
+	              { href: this.state.html_url + '/network' },
+	              _react2['default'].createElement(
+	                'strong',
+	                null,
+	                this.state.forks_count
+	              ),
+	              ' Forks'
+	            )
+	          ),
+	          _react2['default'].createElement(
+	            'li',
+	            { className: 'github-repository__language' },
+	            _react2['default'].createElement(
+	              'a',
+	              { href: this.state.html_url + '/search?l=' + this.state.language },
+	              _react2['default'].createElement(
+	                'strong',
+	                null,
+	                this.state.language
+	              ),
+	              ' Language'
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return _default;
+	})(_react.Component);
+
+	exports['default'] = _default;
+	module.exports = exports['default'];
+
+/***/ },
+/* 350 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(351);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(348)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./GithubRepository.less", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./GithubRepository.less");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 351 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(347)();
+	// imports
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);", ""]);
+
+	// module
+	exports.push([module.id, ".github-repository {\n  font-family: 'Yanone Kaffeesatz', sans-serif;\n  max-width: 300px;\n  width: 100%;\n  text-align: center;\n  padding: 10px 0;\n  color: #333;\n  text-shadow: 0 0 1px #ddd;\n}\n.github-repository a,\n.github-repository a:visited {\n  color: inherit;\n  text-decoration: none;\n}\n.github-repository h2,\n.github-repository h4,\n.github-repository h5 {\n  margin: 0;\n}\n.github-repository .github-repository__name {\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n}\n.github-repository .github-repository__description {\n  display: block;\n}\n.github-repository .github-repository__details {\n  list-style: none;\n  text-align: center;\n  padding: 0;\n}\n.github-repository .github-repository__details li {\n  width: 33%;\n  display: inline-block;\n}\n.github-repository .github-repository__details li:not(:last-child) {\n  border-right: 1px solid #888;\n}\n.github-repository .github-repository__details li strong {\n  display: block;\n}\n", ""]);
+
+	// exports
+
 
 /***/ }
 /******/ ]);

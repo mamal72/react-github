@@ -2,7 +2,7 @@
 
 .github-repository {
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  max-width: 200px;
+  max-width: 300px;
   width: 100%;
   text-align: center;
   padding: 10px 0;
@@ -16,6 +16,12 @@
 
   h2, h4, h5 {
     margin: 0;
+  }
+
+  .github-repository__name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .github-repository__description {

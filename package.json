@@ -1,5 +1,5 @@
 {
-  "name": "react-github-components",
+  "name": "react-github",
   "version": "1.0.3",
   "description": "A set of useful Github components for React",
   "main": "index.js",
@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mamal72/react-github-components.git"
+    "url": "git+https://github.com/mamal72/react-github.git"
   },
   "keywords": [
     "react",
@@ -21,9 +21,9 @@
     "github"
   ],
   "bugs": {
-    "url": "https://github.com/mamal72/react-github-components/issues"
+    "url": "https://github.com/mamal72/react-github/issues"
   },
-  "homepage": "https://github.com/mamal72/react-github-components#readme",
+  "homepage": "https://github.com/mamal72/react-github#readme",
   "devDependencies": {
     "babel-core": "^5.8.25",
     "babel-eslint": "^4.1.3",

@@ -8,10 +8,16 @@ export default class extends Component {
   static propTypes = {
     username: PropTypes.string.isRequired,
     repository: PropTypes.string.isRequired,
-    noName: PropTypes.boolean,
-    noUsername: PropTypes.boolean,
-    noDescription: PropTypes.boolean,
+    showName: PropTypes.boolean,
+    showUsername: PropTypes.boolean,
+    showDescription: PropTypes.boolean,
     className: PropTypes.string
+  }
+
+  static defaultProps = {
+    showName: true,
+    showUsername: true,
+    showDescription: true
   }
 
   constructor(props) {
@@ -34,18 +40,18 @@ export default class extends Component {
     return (
       <div className={className}>
         {
-          !this.props.noName && <a href={this.state.html_url}><h2 className="github-repository__name">{this.props.repository}</h2></a>
+          this.props.showName && <a href={this.state.html_url}><h2 className="github-repository__name">{this.props.repository}</h2></a>
         }
         {
-          !this.props.noDescription && <h4 className="github-repository__description">{this.state.description}</h4>
+          this.props.showDescription && <h4 className="github-repository__description">{this.state.description}</h4>
         }
         {
-          !this.props.noUsername && <h5>by <strong><a href={ownerUrl}>@{this.props.username}</a></strong></h5>
+          this.props.showUsername && <h5>by <strong><a href={ownerUrl}>@{this.props.username}</a></strong></h5>
         }
         <ul className="github-repository__details">
           <li className="github-repository__stars"><a href={`${this.state.html_url}/stargazers`}><strong>{this.state.stargazers_count}</strong> Stars</a></li>
           <li className="github-repository__forks"><a href={`${this.state.html_url}/network`}><strong>{this.state.forks_count}</strong> Forks</a></li>
-          <li className="github-repository__language"><strong>{this.state.language}</strong> Language</li>
+          <li className="github-repository__language"><a href={`${this.state.html_url}/search?l=${this.state.language}`}><strong>{this.state.language}</strong> Language</a></li>
         </ul>
       </div>
     );

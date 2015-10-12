@@ -5,7 +5,8 @@ const API_ROOT = 'https://api.github.com/users';
 
 export default class extends Component {
   static propTypes = {
-    username: PropTypes.string.isRequired
+    username: PropTypes.string.isRequired,
+    className: PropTypes.string
   }
 
   constructor(props) {
@@ -26,16 +27,16 @@ export default class extends Component {
     const followersUrl = `${this.state.html_url}/followers`;
     const repositoriesUrl = `${this.state.html_url}/repositories`;
     const gistsUrl = `https://gist.github.com/${this.props.username}`;
+    const className = this.props.className ? `github-profile ${this.props.className}` : 'github-profile';
 
     return (
-      <div className="github-profile">
+      <div className={className}>
         <div className="github-profile__avatar">
           <a href={this.state.blog || this.state.html_url}><img alt={this.props.username} src={this.state.avatar_url} /></a>
         </div>
         <div className="github-profile__details">
           <a href={this.state.html_url}><h3 className="github-profile__username">@{this.props.username}</h3></a>
           <h2 className="github-profile__name">{this.state.name}</h2>
-          <hr className="github-profile__separator" />
           <ul className="github-profile__stats">
             <li className="github-profile__followers">
               <a href={followersUrl}><strong>{this.state.followers}</strong> Followers</a>

@@ -13,6 +13,10 @@ module.exports = {
         query: {
           stage: 0
         }
+      },
+      {
+        test: /\.less$/,
+        loader: 'style!css!less'
       }
     ]
   }

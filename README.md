@@ -3,24 +3,14 @@
 # react-github-components
 **react-github-components** is a set of react components for Github written by ES6 and ES7. It's a WIP and more components will be added.
 
-For now, there are 2 styles. More styles may be added later.
 
-# Styles
+# Screenshots
 
-## Github
-A simple Github like style
+## GithubProfile
+
 <p align='center'>
     <img src='https://github.com/mamal72/react-github-components/raw/master/screenshot2.png' />
 </p>
-
-## Silver
-A little silver, fancy style
-<p align='center'>
-    <img src='https://github.com/mamal72/react-github-components/raw/master/screenshot1.png' />
-</p>
-
-## Others
-*You can make your own styles and ignore these too. It's so simple and does not make much time! You can even share them by sending a PR if you wish.*
 
 
 # Installation

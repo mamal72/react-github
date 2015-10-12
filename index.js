@@ -1,8 +1,10 @@
 import 'babel-core/polyfill';
 import GithubProfile from './src/components/GithubProfile';
+import GithubRepository from './src/components/GithubRepository';
 
 const components = {
-  GithubProfile
+  GithubProfile,
+  GithubRepository
 };
 
 export default components;

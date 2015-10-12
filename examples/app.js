@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { GithubProfile } from '../';
+import { GithubRepository } from '../';
 
 class App extends Component {
   render() {
     return (
       <div>
         <GithubProfile username="mamal72" />
-        <GithubProfile username="mdibaiee" />
-        <GithubProfile username="mohebifar" />
+        <GithubRepository username="mamal72" repository="react-github-components" />
       </div>
     );
   }

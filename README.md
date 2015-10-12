@@ -9,7 +9,7 @@
 ## GithubProfile
 
 <p align='center'>
-    <img src='https://github.com/mamal72/react-github-components/raw/master/screenshots/GithubProfile.png' />
+    <img src='https://github.com/mamal72/react-github-components/raw/v2/screenshots/GithubProfile.png' />
 </p>
 
 

@@ -20,10 +20,7 @@ export default class extends Component {
     showDescription: true
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  state = {};
 
   componentDidMount() {
     async () => {

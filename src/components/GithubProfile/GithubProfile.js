@@ -9,10 +9,7 @@ export default class extends Component {
     className: PropTypes.string
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  state = {};
 
   componentDidMount() {
     async () => {

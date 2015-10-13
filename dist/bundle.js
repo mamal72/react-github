@@ -5202,19 +5202,11 @@
 	var _default = (function (_Component) {
 	  _inherits(_default, _Component);
 
-	  _createClass(_default, null, [{
-	    key: 'propTypes',
-	    value: {
-	      username: _react.PropTypes.string.isRequired,
-	      className: _react.PropTypes.string
-	    },
-	    enumerable: true
-	  }]);
-
-	  function _default(props) {
+	  function _default() {
 	    _classCallCheck(this, _default);
 
-	    _get(Object.getPrototypeOf(_default.prototype), 'constructor', this).call(this, props);
+	    _get(Object.getPrototypeOf(_default.prototype), 'constructor', this).apply(this, arguments);
+
 	    this.state = {};
 	  }
 
@@ -5336,6 +5328,13 @@
 	        )
 	      );
 	    }
+	  }], [{
+	    key: 'propTypes',
+	    value: {
+	      username: _react.PropTypes.string.isRequired,
+	      className: _react.PropTypes.string
+	    },
+	    enumerable: true
 	  }]);
 
 	  return _default;
@@ -25137,31 +25136,11 @@
 	var _default = (function (_Component) {
 	  _inherits(_default, _Component);
 
-	  _createClass(_default, null, [{
-	    key: 'propTypes',
-	    value: {
-	      username: _react.PropTypes.string.isRequired,
-	      repository: _react.PropTypes.string.isRequired,
-	      showName: _react.PropTypes.boolean,
-	      showUsername: _react.PropTypes.boolean,
-	      showDescription: _react.PropTypes.boolean,
-	      className: _react.PropTypes.string
-	    },
-	    enumerable: true
-	  }, {
-	    key: 'defaultProps',
-	    value: {
-	      showName: true,
-	      showUsername: true,
-	      showDescription: true
-	    },
-	    enumerable: true
-	  }]);
-
-	  function _default(props) {
+	  function _default() {
 	    _classCallCheck(this, _default);
 
-	    _get(Object.getPrototypeOf(_default.prototype), 'constructor', this).call(this, props);
+	    _get(Object.getPrototypeOf(_default.prototype), 'constructor', this).apply(this, arguments);
+
 	    this.state = {};
 	  }
 
@@ -25281,6 +25260,25 @@
 	        )
 	      );
 	    }
+	  }], [{
+	    key: 'propTypes',
+	    value: {
+	      username: _react.PropTypes.string.isRequired,
+	      repository: _react.PropTypes.string.isRequired,
+	      showName: _react.PropTypes.boolean,
+	      showUsername: _react.PropTypes.boolean,
+	      showDescription: _react.PropTypes.boolean,
+	      className: _react.PropTypes.string
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {
+	      showName: true,
+	      showUsername: true,
+	      showDescription: true
+	    },
+	    enumerable: true
 	  }]);
 
 	  return _default;

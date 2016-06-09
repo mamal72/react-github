@@ -8,9 +8,9 @@ export default class extends Component {
   static propTypes = {
     username: PropTypes.string.isRequired,
     repository: PropTypes.string.isRequired,
-    showName: PropTypes.boolean,
-    showUsername: PropTypes.boolean,
-    showDescription: PropTypes.boolean,
+    showName: PropTypes.bool,
+    showUsername: PropTypes.bool,
+    showDescription: PropTypes.bool,
     className: PropTypes.string
   }
 
@@ -23,12 +23,12 @@ export default class extends Component {
   state = {};
 
   componentDidMount() {
-    async () => {
+    (async () => {
       const address = `${API_ROOT}/${this.props.username}/${this.props.repository}`;
       const response = await fetch(address);
       const json = await response.json();
       this.setState(json);
-    }();
+    })();
   }
 
   render() {
@@ -45,10 +45,10 @@ export default class extends Component {
         {
           this.props.showUsername && <h5>by <strong><a href={ownerUrl}>@{this.props.username}</a></strong></h5>
         }
-        <ul className="github-repository__details">
-          <li className="github-repository__stars"><a href={`${this.state.html_url}/stargazers`}><strong>{this.state.stargazers_count}</strong> Stars</a></li>
-          <li className="github-repository__forks"><a href={`${this.state.html_url}/network`}><strong>{this.state.forks_count}</strong> Forks</a></li>
-          <li className="github-repository__language"><a href={`${this.state.html_url}/search?l=${this.state.language}`}><strong>{this.state.language}</strong> Language</a></li>
+        <ul className={`${className}__details`}>
+          <li className={`${className}__stars`}><a href={`${this.state.html_url}/stargazers`}><strong>{this.state.stargazers_count}</strong> Stars</a></li>
+          <li className={`${className}__forks`}><a href={`${this.state.html_url}/network`}><strong>{this.state.forks_count}</strong> Forks</a></li>
+          <li className={`${className}__language`}><a href={`${this.state.html_url}/search?l=${this.state.language}`}><strong>{this.state.language}</strong> Language</a></li>
         </ul>
       </div>
     );

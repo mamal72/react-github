@@ -4,7 +4,7 @@
   "description": "A set of useful Github components for React",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --entry ./examples/app.js --output-file ../examples/bundle.js",
+    "start": "webpack-dev-server --entry ./examples/app.js --output-filename ../examples/bundle.js",
     "build": "webpack",
     "lint": "eslint src",
     "test": "eslint src"

@@ -1,4 +1,4 @@
-import 'babel-core/polyfill';
+import 'babel-polyfill';
 import GithubProfile from './src/components/GithubProfile';
 import GithubRepository from './src/components/GithubRepository';
 

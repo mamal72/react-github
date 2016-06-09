@@ -22,7 +22,7 @@ Renders a simple Github user profile box with some useful info about the user.
     <img alt='profile' src='https://github.com/mamal72/react-github/raw/v2/screenshots/GithubProfile.png' />
 </p>
 
-```jsx
+```js
 import React, { Component } from 'react';
 import { GithubProfile } from 'react-github';
 
@@ -50,7 +50,7 @@ Renders a repository info box with some details of it.
     <img alt='repository' src='https://github.com/mamal72/react-github/raw/v2/screenshots/GithubRepository.png' />
 </p>
 
-```jsx
+```js
 import React, { Component } from 'react';
 import { GithubRepository } from 'react-github';
 

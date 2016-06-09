@@ -12,12 +12,12 @@ export default class extends Component {
   state = {};
 
   componentDidMount() {
-    async () => {
+    (async () => {
       const address = `${API_ROOT}/${this.props.username}`;
       const response = await fetch(address);
       const json = await response.json();
       this.setState(json);
-    }();
+    })();
   }
 
   render() {
@@ -28,20 +28,20 @@ export default class extends Component {
 
     return (
       <div className={className}>
-        <div className="github-profile__avatar">
+        <div className={`${className}__avatar`}>
           <a href={this.state.blog || this.state.html_url}><img alt={this.props.username} src={this.state.avatar_url} /></a>
         </div>
-        <div className="github-profile__details">
-          <a href={this.state.html_url}><h3 className="github-profile__username">@{this.props.username}</h3></a>
-          <h2 className="github-profile__name">{this.state.name}</h2>
-          <ul className="github-profile__stats">
-            <li className="github-profile__followers">
+        <div className={`${className}__details`}>
+          <a href={this.state.html_url}><h3 className={`${className}__username`}>@{this.props.username}</h3></a>
+          <h2 className={`${className}__name`}>{this.state.name}</h2>
+          <ul className={`${className}__stats`}>
+            <li className={`${className}__followers`}>
               <a href={followersUrl}><strong>{this.state.followers}</strong> Followers</a>
             </li>
-            <li className="github-profile__repos">
+            <li className={`${className}__repos`}>
               <a href={repositoriesUrl}><strong>{this.state.public_repos}</strong> Repos</a>
             </li>
-            <li className="github-profile__gists">
+            <li className={`${className}__gists`}>
               <a href={gistsUrl}><strong>{this.state.public_gists}</strong> Gists</a>
             </li>
           </ul>

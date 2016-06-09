@@ -8,10 +8,10 @@ class App extends Component {
     return (
       <div>
         <GithubProfile username="mamal72" />
-        <GithubRepository showDescription={false} username="mamal72" repository="react-github-components" />
-        <GithubRepository showName={false} username="mamal72" repository="react-github-components" />
-        <GithubRepository showUsername={false} username="mamal72" repository="react-github-components" />
-        <GithubRepository className="my-profile" username="mamal72" repository="react-github-components" />
+        <GithubRepository showDescription={false} username="mamal72" repository="react-github" />
+        <GithubRepository username="mamal72" repository="react-github" />
+        <GithubRepository showUsername={false} username="mamal72" repository="react-github" />
+        <GithubRepository className="my-profile" username="mamal72" repository="react-github" />
       </div>
     );
   }

@@ -1,13 +1,13 @@
 {
   "name": "react-github",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "A set of useful Github components for React",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && ./node_modules/.bin/webpack-dev-server",
-    "build": "./node_modules/.bin/webpack",
-    "lint": "./node_modules/.bin/eslint src",
-    "test": "npm run build && ./node_modules/.bin/mocha test/index.js --require ignore-styles --compilers js:babel-core/register"
+    "start": "npm run build && webpack-dev-server",
+    "build": "webpack",
+    "lint": "eslint src",
+    "test": "npm run lint && npm run build && ./node_modules/.bin/mocha test/index.js --require ignore-styles --compilers js:babel-core/register"
   },
   "files": [
     "dist"
@@ -39,7 +39,14 @@
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
     "enzyme": "^2.3.0",
+<<<<<<< HEAD
     "eslint": "^2.11.1",
+=======
+    "eslint": "^2.12.0",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-jsx-a11y": "^1.4.2",
+>>>>>>> master
     "eslint-plugin-react": "^5.1.1",
     "ignore-styles": "^3.0.0",
     "jsdom": "^9.2.1",

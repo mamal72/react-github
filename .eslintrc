@@ -3,6 +3,8 @@
   "rules": {
     "react/jsx-quotes": 0,
     "jsx-quotes": [2, "prefer-double"],
-    "comma-dangle": [2, "never"]
-  }
+    "comma-dangle": [2, "never"],
+    "max-len": 0
+  },
+  "parser": "babel-eslint"
 }
